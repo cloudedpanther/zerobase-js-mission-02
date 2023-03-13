@@ -31,8 +31,8 @@ const AnalogClock = ($container) => {
 
   const getHandDegree = () => {
     const { hour, minute, second } = getTime();
-    const hourDeg = (hour % 12) * 30;
-    const minuteDeg = minute * 6;
+    const hourDeg = (hour % 12) * 30 + (minute * 60 + second) / 120;
+    const minuteDeg = minute * 6 + second * 0.1;
     const secondDeg = second * 6;
 
     return { hourDeg, minuteDeg, secondDeg };
